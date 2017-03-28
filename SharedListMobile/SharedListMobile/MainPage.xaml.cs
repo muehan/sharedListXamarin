@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using SharedListMobile.ViewModel;
+using Xamarin.Forms;
 
 namespace SharedListMobile
 {
@@ -7,6 +8,7 @@ namespace SharedListMobile
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new ShoppingListViewModel();
         }
     }
 }

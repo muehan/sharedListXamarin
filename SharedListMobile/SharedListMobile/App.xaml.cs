@@ -19,9 +19,7 @@ namespace SharedListMobile
 
         protected override void OnStart()
         {
-            var firebase = new FirebaseService();
-
-            firebase.Init();
+            
         }
 
         protected override void OnSleep()

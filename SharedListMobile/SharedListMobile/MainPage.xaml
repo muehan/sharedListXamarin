@@ -8,8 +8,12 @@
            VerticalOptions="Center"
            HorizontalOptions="Center" />
 
-  <ListView>
+  <ListView ItemsSource="{Binding ShoppingItems}">
     
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <TextCell Text="{Binding value}" Detail="{Binding key}" />
+      </DataTemplate>
+    </ListView.ItemTemplate>
   </ListView>
-
 </ContentPage>

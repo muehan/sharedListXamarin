@@ -3,19 +3,20 @@ using Firebase.Xamarin.Database;
 using Firebase.Xamarin.Database.Query;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Firebase.Xamarin.Auth;
 
 namespace SharedListMobile.services
 {
     public class FirebaseService
     {
-        public async void Init()
+        public async Task<IReadOnlyCollection<FirebaseObject<ShoppingItem>>> GetShoppingListItems()
         {
             var firebase = new FirebaseClient("https://sharedlist-40f8d.firebaseio.com");
 
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyBBeAqd9qBd_H_JkU5b3YVvWRIFqewqiE0"));
 
-            var user = await authProvider.SignInWithEmailAndPasswordAsync("yourEmail", "yourPassword");
+            var user = await authProvider.SignInWithEmailAndPasswordAsync("fgjfghj", "ertzerz");
 
             Debug.WriteLine($"user: {user.User.Email}");
 
@@ -30,10 +31,12 @@ namespace SharedListMobile.services
             {
                 Debug.WriteLine($"{item.Key} name is {item.Object.value}");
             }
+
+            return items;
         }
     }
 
-    public class ShoppingLists
+    public class ShoppingList
     {
         public IEnumerable<ShoppingItem> ShoppingItems { get; set; }
     }
